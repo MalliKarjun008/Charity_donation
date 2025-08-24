@@ -6,4 +6,4 @@ export const store = configureStore({
   reducer: { auth: authReducer, alert: alertReducers },
 });
 
-// some changes to check git
+// some changes to check git again
