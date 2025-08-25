@@ -53,7 +53,7 @@ function NavBarCategories() {
   ];
 
   return (
-    <div className="w-full border-b bg-slate-300/30 py-3">
+    <div className="w-full border-b bg-stone-500/25  border-gray-300 py-3">
       <div className="mx-auto max-w-7xl px-4">
         <NavigationMenu>
           <NavigationMenuList className="flex space-x-6">
