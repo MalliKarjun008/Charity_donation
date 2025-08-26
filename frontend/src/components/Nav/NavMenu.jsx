@@ -8,8 +8,8 @@ function NavMenu() {
       <MenuBarItem
         trigger="Campaigns"
         menuItems={[
-          { item: "Create Campaign", navigate: "create-campaign" },
-          { item: "View Campaigns", navigate: "/view-campaigns" },
+          { item: "Create Campaign", navigate: "/campaign/create-campaign" },
+          { item: "View Campaigns", navigate: "/app" },
           { item: "Manage Campaigns", navigate: "/manage-campaigns" },
           { item: "Campaign Reports", navigate: "/campaign-reports" },
         ]}
@@ -31,7 +31,7 @@ function NavMenu() {
         trigger="Donations"
         menuItems={[
           { item: "Make a Donation", navigate: "/donations/make" },
-          { item: "Donation History", navigate: "donation-history" },
+          { item: "Donation History", navigate: "/donation/donation-history" },
           { item: "Track Donations", navigate: "/donations/track" },
         ]}
       />
@@ -40,8 +40,8 @@ function NavMenu() {
       <MenuBarItem
         trigger="Profile"
         menuItems={[
-          { item: "View Profile", navigate: "/profile/view" },
-          { item: "Edit Profile", navigate: "/profile/edit" },
+          { item: "View Profile", navigate: "profile/view" },
+          { item: "Edit Profile", navigate: "profile/edit" },
           {
             item: (
               <span key="logout">
