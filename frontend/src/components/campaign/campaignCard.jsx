@@ -5,19 +5,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import dummyImg from "../../../public/dummy.png";
-import { Progress } from "../ui/progress";
+import dummyImg from "../../assets/dummy.png";
 import { FaBookmark } from "react-icons/fa";
+import CampaignProgress from "./CampaignProgress";
 
-function DonationCard() {
+function CampaignCard({ value }) {
   return (
-    <Card className="w-full max-w-sm rounded-2xl border border-gray-200 hover:shadow-lg transition shadow-lg hover:scale-105 cursor-pointer">
+    <Card className="w-full max-w-sm rounded-2xl bg-stone-600 p-5 text-white hover:shadow-lg transition shadow-lg hover:scale-105 cursor-pointer border-none">
       {/* Image */}
       <div className="relative">
         <img
           src={dummyImg}
           alt="campaign"
-          className="w-full h-48 object-cover rounded-t-2xl"
+          className="w-full h-48 object-cover rounded-2xl"
         />
         <button className="absolute cursor-pointer top-3 right-3 text-white bg-black/50 p-2 rounded-full hover:bg-black/70">
           <FaBookmark size={18} />
@@ -25,11 +25,11 @@ function DonationCard() {
       </div>
 
       {/* Card Content */}
-      <CardHeader className="space-y-2">
+      <CardHeader className="space-y-2 text-white">
         <CardTitle className="text-lg font-semibold">
           Flow Timer: For Productivity and Focus
         </CardTitle>
-        <CardDescription className="text-sm text-gray-600">
+        <CardDescription className="text-sm text-white">
           Flow Timer helps you stay focused by breaking work into short, timed
           intervals.
         </CardDescription>
@@ -37,19 +37,16 @@ function DonationCard() {
 
       {/* Footer with Progress */}
       <CardFooter className="flex flex-col gap-2 items-start">
-        <p className="text-sm font-medium text-gray-700">10 days left</p>
+        <p className="text-sm font-medium ">10 days left</p>
         <div className="w-full">
-          <Progress value={50} className="h-2 bg-gray-200">
-            <div
-              className="h-2 bg-green-500 rounded-full"
-              style={{ width: "50%" }}
-            />
-          </Progress>
-          <p className="mt-1 text-sm font-medium text-green-600">50% funded</p>
+          <CampaignProgress value={value} />
+          <p className="mt-1 text-sm font-medium text-green-600">
+            {value}% funded
+          </p>
         </div>
       </CardFooter>
     </Card>
   );
 }
 
-export default DonationCard;
+export default CampaignCard;

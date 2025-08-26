@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Popover,
   PopoverContent,
@@ -9,23 +8,20 @@ import { IoFilterSharp } from "react-icons/io5";
 import CampaignFilterForm from "./CampaignFilterForm";
 
 function CampaignFilter() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
           className="flex items-center gap-2 rounded-xl shadow-sm cursor-pointer"
         >
-          <IoFilterSharp className="h-4 w-4" />
-          <span>Filter</span>
+          <IoFilterSharp className="h-4 w-4" color="black" />
+          <span className="text-sm font-medium text-black">Filter</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent
         align="start"
         className="w-full bg-white p-4 rounded-xl shadow-lg"
-        onMouseLeave={() => setOpen(false)} // 👈 closes when mouse leaves
       >
         <CampaignFilterForm />
       </PopoverContent>

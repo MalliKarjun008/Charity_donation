@@ -34,10 +34,41 @@ function CampaignFilterForm() {
 
       {/* Right section (filters) */}
       <div className="flex flex-col gap-3">
-        <FilterDropDown triggerText="Live projects" />
-        <FilterDropDown triggerText="Amount Pledged" />
-        <FilterDropDown triggerText="Goal" />
-        <FilterDropDown triggerText="% Raised" />
+        <FilterDropDown
+          triggerText="Live projects"
+          label="Live projects"
+          items={[
+            "All Projects",
+            "Live Projects",
+            "Upcoming Projects",
+            "Successful Projects",
+          ]}
+        />
+        <FilterDropDown
+          triggerText="Amount Pledged"
+          label="Amount Pledged"
+          items={["<1000", "1000-2000", "2000-3000", "3000+"]}
+        />
+        <FilterDropDown
+          triggerText="Goal"
+          label="Goal"
+          items={[
+            "<1000 goal",
+            "1000-2000 goal",
+            "2000-3000 goal",
+            "3000+ goal",
+          ]}
+        />
+        <FilterDropDown
+          triggerText="% Raised"
+          label="% Raised"
+          items={[
+            "Raised 0-10%",
+            "Raised 10-30%",
+            "Raised 30-70%",
+            "Raised 70-100%",
+          ]}
+        />
       </div>
     </div>
   );

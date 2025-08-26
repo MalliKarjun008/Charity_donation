@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FaChevronDown } from "react-icons/fa";
 
-function FilterDropDown({ triggerText }) {
+function FilterDropDown({ triggerText, label, items }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="cursor-pointer hover:scale-105 hover:shadow-md border px-5 py-3 rounded-md flex items-center justify-between gap-5 w-full">
@@ -16,12 +16,11 @@ function FilterDropDown({ triggerText }) {
         <FaChevronDown />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{label}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+        {items.map((item) => (
+          <DropdownMenuItem key={item}>{item}</DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

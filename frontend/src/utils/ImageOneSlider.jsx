@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
 
-function ImageSlider({ images }) {
+function ImageOneSlider({ images }) {
   const [imageIdx, setImageIdx] = useState(0);
   const [direction, setDirection] = useState(1);
   const [autoSliding, setautoSliding] = useState(true);
@@ -140,4 +140,4 @@ function ImageSlider({ images }) {
   );
 }
 
-export default ImageSlider;
+export default ImageOneSlider;
