@@ -4,6 +4,8 @@ const globalErrorHandler = require('./Controllers/errorController');
 const AppError = require('./utils/appError');
 
 const userRouter = require('./Routes/userRoutes');
+const campaignRouter = require('./Routes/campaignRoutes');
+const donationRouter = require('./Routes/donationRoutes');
 
 
 const app = express();
@@ -24,7 +26,8 @@ app.use((req, res, next) => {
 
 
 app.use('/api/v1/users', userRouter);
-
+app.use('/api/v1/campaigns', campaignRouter);
+app.use('/api/v1/donations', donationRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Cannot find ${req.originalUrl} on this server`, 404));
