@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import LandingPage from "./pages/landingPage";
 import NavWrapper from "./components/Nav/NavWrapper";
 import CreateCampaign from "./pages/createCampaign";
+import DonationHistory from "./pages/DonationHistory";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +16,7 @@ function App() {
       children: [
         { index: true, element: <LandingPage /> },
         { path: "create-campaign", element: <CreateCampaign /> },
+        { path: "donation-history", element: <DonationHistory /> },
       ],
     },
   ]);
