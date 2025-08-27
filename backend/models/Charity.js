@@ -8,6 +8,6 @@ const campaignSchema = new mongoose.Schema({
   deadline: Date,
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   status: { type: String, enum: ['active', 'completed'], default: 'active' }
-}, { timestamps: true });
+}, { timestamps: true },{ collection: 'charities' });
 
 module.exports = mongoose.model('Campaign', campaignSchema);
