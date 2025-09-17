@@ -1,8 +1,8 @@
 const express = require('express');
+const morgan = require('morgan');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDatabase = require('./config/database');
-const fraudDetectionModel = require('./ml-models/fraudDetection');
 
 // Load env vars
 dotenv.config();
@@ -11,11 +11,11 @@ dotenv.config();
 connectDatabase();
 
 // Initialize fraud detection model
-fraudDetectionModel.init();
 
 const app = express();
 
 // Body parser middleware
+app.use(morgan('dev'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
