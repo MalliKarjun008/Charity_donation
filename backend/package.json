@@ -1,0 +1,31 @@
+{
+  "name": "charity-donation-backend",
+  "version": "1.0.0",
+  "description": "Backend for blockchain-based charity donation system",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "compile-contracts": "truffle compile",
+    "deploy-contracts": "truffle migrate",
+    "train-model": "node ml-models/trainModel.js"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "bcrypt": "6.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.8.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "morgan": "1.10.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.4"
+  },
+  "devDependencies": {
+    "hardhat": "3.0.4",
+    "nodemon": "^3.0.1"
+  }
+}
