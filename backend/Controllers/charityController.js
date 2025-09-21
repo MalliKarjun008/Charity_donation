@@ -1,6 +1,6 @@
-const Charity = require("../../backend_with_blockchain/models/Charity");
-const User = require("../../backend_with_blockchain/models/User");
-const Donation = require("../../backend_with_blockchain/models/Donation");
+const Charity = require("../models/Charity");
+const User = require("../models/User");
+const Donation = require("../models/Donation");
 const blockchainService = require("../../backend/utils/web3");
 
 // Create a new charity

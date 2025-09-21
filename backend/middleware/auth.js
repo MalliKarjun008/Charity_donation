@@ -1,46 +1,21 @@
 const jwt = require("jsonwebtoken");
-const User = require("../../backend_with_blockchain/models/User");
 
-// Protect routes
-exports.protect = async (req, res, next) => {
-  try {
-    let token;
+module.exports = {
+  protect: (req, res, next) => {
+    const authHeader = req.headers.authorization;
 
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startsWith("Bearer")
-    ) {
-      token = req.headers.authorization.split(" ")[1];
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({ message: "No token, authorization denied" });
     }
 
-    if (!token) {
-      return res
-        .status(401)
-        .json({ message: "Not authorized to access this route" });
-    }
+    const token = authHeader.split(" ")[1];
 
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = await User.findById(decoded.id);
+      req.user = decoded;
       next();
-    } catch (error) {
-      return res
-        .status(401)
-        .json({ message: "Not authorized to access this route" });
+    } catch (err) {
+      return res.status(401).json({ message: "Token is not valid" });
     }
-  } catch (error) {
-    res.status(500).json({ message: error.message });
   }
-};
-
-// Grant access to specific roles
-exports.authorize = (...roles) => {
-  return (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
-      return res.status(403).json({
-        message: `User role ${req.user.role} is not authorized to access this route`,
-      });
-    }
-    next();
-  };
 };
